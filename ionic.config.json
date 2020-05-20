@@ -1,0 +1,7 @@
+{
+  "name": "irismobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
