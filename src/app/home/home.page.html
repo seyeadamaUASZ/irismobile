@@ -1,20 +1,75 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Iris Prediction
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" style="background-color:blue;">
+    <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Prediction</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+    <div *ngIf="mode==1" class="play1">
+        <img src="assets/images/{{prediction}}.png " width="70" height="70">
+        <p>{{prediction}}</p>
+    </div>
+
+    <div id="container">
+        <form #f="ngForm" (ngSubmit)="gotoPredict()">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-input type="number" placeholder="sepal Length" [(ngModel)]="loadData.sepalLength" required="" name="sepalLength"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-input type="number" placeholder="sepal Width" [(ngModel)]="loadData.sepalWidth" required="" name="sepalWidth"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-input type="number" placeholder="petal Length" [(ngModel)]="loadData.petalLength" required="" name="petalLength"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-input type="number" placeholder="petal Width" [(ngModel)]="loadData.petalWidth" required="" name="petalWidth"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+
+
+                <!--<ion-row>
+            <ion-col>
+               <ion-item>
+                 <ion-input type="text" placeholder="route" [(ngModel)]="loadData.route" required="" name="route"></ion-input>
+               </ion-item>
+            </ion-col>
+         </ion-row>-->
+
+            </ion-grid>
+            <div>
+                <ion-button color="green" expand="full" type="submit">
+                    prediction
+                </ion-button>
+            </div>
+        </form>
+
+    </div>
 </ion-content>
